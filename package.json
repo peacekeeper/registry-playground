@@ -26,16 +26,18 @@
     "gulp-sync": "^0.1.4",
     "gulp-concat": "^2.6.0",
     "gulp-rename": "^1.2.2",
+    "gulp-bower": "^0.0.10",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.4.2",
     "vinyl-paths": "^1.0.0",
     "vinyl-transform": "^1.0.0",
     "vinyl-source-stream": "^0.1.1",
     "browserify": "^11.0.1"
   },
   "dependencies": {
-    "classnames": "^2.1.5",
-    "history": "^1.11.1",
     "jquery": "^2.1.4",
     "lodash": "^3.10.0",
-    "jwt-js": "^0.4.3"
+    "jwt-js": "^0.4.3",
+    "jsrsasign": "^5.0.1"
   }
 }

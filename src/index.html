@@ -7,44 +7,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="stylesheet" href="topcoat/css/topcoat-desktop-light.min.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="style.css" type="text/css" media="screen">
 	<link rel="shortcut icon" href="favicon.ico" />
 
-	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+	<link rel="stylesheet" href="bower/topcoat/css/topcoat-desktop-light.min.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="css/lib.css" type="text/css" media="screen">
+
+	<script type="text/javascript" src="js/lib.js"></script>
 	<script type="text/javascript" src="app.js"></script>
-	<script type="text/javascript" src="js/util.js"></script>
 
-	<script type="text/javascript" src="coinbin/crypto-min.js"></script>
-	<script type="text/javascript" src="coinbin/crypto-sha256.js"></script>
-	<script type="text/javascript" src="coinbin/crypto-sha256-hmac.js"></script>
-	<script type="text/javascript" src="coinbin/sha512.js"></script>
-	<script type="text/javascript" src="coinbin/ripemd160.js"></script>
-	<script type="text/javascript" src="coinbin/aes.js"></script>
-
-	<script type="text/javascript" src="coinbin/qrcode.js"></script>
-	<script type="text/javascript" src="coinbin/qcode-decoder.min.js"></script>
-	<script type="text/javascript" src="coinbin/jsbn.js"></script>
-	<script type="text/javascript" src="coinbin/ellipticcurve.js"></script>
-
-	<script type="text/javascript" src="coinbin/coin.js"></script>
-
-	<script type="text/javascript">
-	
-	function createKey() {
-
-		coinjs.compressed = true;
-		var hd = coinjs.hd();
-		var masterhd = hd.master(null);
-		var master = coinjs.hd(masterhd.privkey);
-		$("#xpub").val(masterhd.pubkey);
-		$("#xprv").val(masterhd.privkey);
-		$("#pub").val(master.keys.address);
-		$("#prv").val(master.keys.wif);
-	}
-	
-	</script>
-	
 </head>
 
 <body>
@@ -57,38 +27,45 @@
 	
 </div>
 
-<!-- ROW 2 -->
+<!-- ROW 1 -->
 
 <div class="row">
 
 	<div class="col-md-6">
-		<p>Create secp256k1 HD master key pair</p>
-		<input type="text" id="xprv" size="80" class="topcoat-text-input--large"><br>
-		<input type="text" id="xpub" size="80" class="topcoat-text-input--large"><br>
-		<input type="text" id="prv" size="80" class="topcoat-text-input--large"><br>
-		<input type="text" id="pub" size="80" class="topcoat-text-input--large"><br>
-		<input type="button" onclick="createKey();" value="Go" class="topcoat-button--large">
+		<h3>Create BIP32 HD master key pair</h3>
+		<p><input type="button" id="createKeyButton" value="Step 1" class="topcoat-button--large--cta"></p>
+		<table>
+		<tr><td>Extended Private Key:</td><td><input type="text" id="xprv" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>Extended Public Key:</td><td><input type="text" id="xpub" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>Private Key:</td><td><input type="text" id="prv" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>Address:</td><td><input type="text" id="pub" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>XDI Number:</td><td><input type="text" id="xdinumber" size="50" class="topcoat-text-input--large"></td></tr>
+		</table>
 	</div>
 
 	<div class="col-md-6">
-		<p>Signed JSON blob</p>
-		<textarea class="topcoat-textarea--large" rows="6" cols="36" placeholder="Textarea"></textarea>
+		<h3>JWT (payload for JWS)</h3>
+		<p><input type="button" id="createJWTButton" value="Step 2" class="topcoat-button--large--cta"></p>
+		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwt"></textarea>
+	</div>
+
+</div>
+
+<!-- ROW 2 -->
+
+<div class="row">
+
+	<div class="col-md-12">
+		<h3>JWS (signed JWT)</h3>
+		<p><input type="button" id="createJWSButton" value="Step 3" class="topcoat-button--large--cta"></p>
+		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jws"></textarea><br>
+		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwsheader"></textarea><br>
+		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwspayload"></textarea>
 	</div>
 
 </div>
 
 <!-- END CONTENT -->
-
-<!-- FOOTER -->
-
-<footer class="footer">
-	<p>Copyright &copy; Project Danube.
-	This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
-	</p>
-	<p>Thank you: Christopher Allen for the ideas and guidance that led to this PoC. 
-The XDI.org Registry Working Group for feedback and developing requirements.
-The Blockstore team for technical support and very friendly Slack atmosphere.</p>
-</footer>
 
 </body>
 </html>
