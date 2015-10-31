@@ -1,0 +1,24 @@
+{
+  "name": "registry-playground",
+  "version": "0.0.1",
+  "authors": [
+    "Markus Sabadello <markus@danubetech.com>"
+  ],
+  "keywords": [
+    "BIP32",
+    "JWT",
+    "XDI"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "topcoat": "~0.8.0",
+    "fontawesome": "~4.3.0"
+  }
+}

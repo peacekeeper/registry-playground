@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+
+	<title>registry playground</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="topcoat/css/topcoat-desktop-light.min.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+	<link rel="shortcut icon" href="favicon.ico" />
+
+	<script type="text/javascript" src="jquery-2.0.3.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
+
+	<script type="text/javascript" src="coinbin/crypto-min.js"></script>
+	<script type="text/javascript" src="coinbin/crypto-sha256.js"></script>
+	<script type="text/javascript" src="coinbin/crypto-sha256-hmac.js"></script>
+	<script type="text/javascript" src="coinbin/sha512.js"></script>
+	<script type="text/javascript" src="coinbin/ripemd160.js"></script>
+	<script type="text/javascript" src="coinbin/aes.js"></script>
+
+	<script type="text/javascript" src="coinbin/qrcode.js"></script>
+	<script type="text/javascript" src="coinbin/qcode-decoder.min.js"></script>
+	<script type="text/javascript" src="coinbin/jsbn.js"></script>
+	<script type="text/javascript" src="coinbin/ellipticcurve.js"></script>
+
+	<script type="text/javascript" src="coinbin/coin.js"></script>
+
+	<script type="text/javascript">
+	
+	function createKey() {
+
+		coinjs.compressed = true;
+		var hd = coinjs.hd();
+		var masterhd = hd.master(null);
+		var master = coinjs.hd(masterhd.privkey);
+		$("#xpub").val(masterhd.pubkey);
+		$("#xprv").val(masterhd.privkey);
+		$("#pub").val(master.keys.address);
+		$("#prv").val(master.keys.wif);
+	}
+	
+	</script>
+	
+</head>
+
+<body>
+
+<!-- CONTENT -->
+
+<div class="row">
+
+	<h1>registry playground</h1>
+	
+</div>
+
+<!-- ROW 2 -->
+
+<div class="row">
+
+	<div class="col-md-6">
+		<p>Create secp256k1 HD master key pair</p>
+		<input type="text" id="xprv" size="80" class="topcoat-text-input--large"><br>
+		<input type="text" id="xpub" size="80" class="topcoat-text-input--large"><br>
+		<input type="text" id="prv" size="80" class="topcoat-text-input--large"><br>
+		<input type="text" id="pub" size="80" class="topcoat-text-input--large"><br>
+		<input type="button" onclick="createKey();" value="Go" class="topcoat-button--large">
+	</div>
+
+	<div class="col-md-6">
+		<p>Signed JSON blob</p>
+		<textarea class="topcoat-textarea--large" rows="6" cols="36" placeholder="Textarea"></textarea>
+	</div>
+
+</div>
+
+<!-- END CONTENT -->
+
+<!-- FOOTER -->
+
+<footer class="footer">
+	<p>Copyright &copy; Project Danube.
+	This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+	</p>
+	<p>Thank you: Christopher Allen for the ideas and guidance that led to this PoC. 
+The XDI.org Registry Working Group for feedback and developing requirements.
+The Blockstore team for technical support and very friendly Slack atmosphere.</p>
+</footer>
+
+</body>
+</html>
