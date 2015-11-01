@@ -1,0 +1,48 @@
+body {
+	color:#eee;
+}
+
+hr {
+	border-top-width: 3px;
+}
+
+.row {
+	margin: 20px;
+}
+
+.row:after,.row:before {
+	display:table;
+	content:" ";
+}
+
+.row:after {
+	clear:both;
+}
+
+.col-md-6 {
+	float: left;
+	width: 50%;
+}
+
+.col-md-12 {
+	float: left;
+	width: 100%;
+}
+
+.footer {
+	text-align: center;
+	padding: 30px 0;
+	margin-top: 70px;
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+	background-color: #f5f5f5;
+}
+
+.footer p {
+	margin-bottom: 0;
+	color: #777;
+}
+
+.result {
+	background-color: rgba(214,201,241,0.9);
+}
