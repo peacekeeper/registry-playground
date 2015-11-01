@@ -9,7 +9,7 @@
 	
 	<link rel="shortcut icon" href="favicon.ico" />
 
-	<link rel="stylesheet" href="bower/topcoat/css/topcoat-desktop-light.min.css" type="text/css" media="screen">
+	<link rel="stylesheet" href="bower/topcoat/css/topcoat-desktop-dark.min.css" type="text/css" media="screen">
 	<link rel="stylesheet" href="css/lib.css" type="text/css" media="screen">
 
 	<script type="text/javascript" src="js/lib.js"></script>
@@ -23,7 +23,7 @@
 
 <div class="row">
 
-	<h2>registry playground ...............</h2>
+   <h2 class="topcoat-navigation-bar__title">&#8226; registry playground ...............</h2>
 	
 </div>
 
@@ -41,20 +41,22 @@
 		<tr><td>Extended Public Key:</td><td><input type="text" id="xpub" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>Private Key:</td><td><input type="text" id="prv" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>Address:</td><td><input type="text" id="pub" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>Derivation Path:</td><td><input type="text" id="der" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
 	</div>
 
 	<div class="col-md-6">
-		<h3>XDI payload</h3>
-		<p><input type="button" id="createJWTAButton" value="Step 2a" class="topcoat-button--large--cta"></p>
+		<h3>Create XDI statement and JWT</h3>
+		<p><input type="button" id="createJWTAButton" value="Step 2a" class="topcoat-button--large--cta"> "I am" XDI statement</p>
 		<table>
 		<tr><td>I am:</td><td><input type="text" id="xdinumber" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
-		<p><input type="button" id="createJWTBButton" value="Step 2b" class="topcoat-button--large--cta"></p>
+		<p><input type="button" id="createJWTBButton" value="Step 2b" class="topcoat-button--large--cta"> "You are" XDI statement <input type="button" id="createJWTBExampleButton" value="Load Example" class="topcoat-button"></p>
 		<table>
-		<tr><td>You are:</td><td><input type="text" id="xdinameyou" size="50" class="topcoat-text-input--large">&nbsp;<input type="button" id="createJWTBExampleButton" value="Example" class="topcoat-button"></td></tr>
+		<tr><td>You are:</td><td><input type="text" id="xdinameyou" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>&nbsp;</td><td><input type="text" id="xdinumberyou" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
+		<p><input type="button" id="createJWTCButton" value="Step 2c" class="topcoat-button--large--cta"> No XDI statement</p>
 	</div>
 
 </div>
@@ -67,7 +69,7 @@
 		<h3>XDI statement</h3>
 		<p><input type="text" id="xdi" style="width: 100%" class="topcoat-text-input--large"></p>
 		<h3>JWT (payload for JWS)</h3>
-		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwt"></textarea>
+		<textarea class="topcoat-textarea" rows="7" style="width: 100%" id="jwt"></textarea>
 	</div>
 
 </div>
@@ -81,11 +83,10 @@
 	<div class="col-md-12">
 		<h3>JWS (signed JWT)</h3>
 		<p><input type="button" id="createJWSButton" value="Step 3" class="topcoat-button--large--cta"></p>
-		<table style="width: 100%">
-		<tr><td>Compact:</td><td><textarea class="topcoat-textarea" rows="2" style="width: 100%" id="jws"></textarea></td></tr>
-		<tr><td>Header:</td><td><textarea class="topcoat-textarea" rows="2" style="width: 100%" id="jwsheader"></textarea></td></tr>
-		<tr><td>Payload:</td><td><textarea class="topcoat-textarea" rows="2" style="width: 100%" id="jwspayload"></textarea></td></tr>
-		</table>
+		<h3>Compact</h3>
+		<textarea class="topcoat-textarea" rows="10" style="width: 100%" id="jws"></textarea>
+		<h3>Expanded</h3>
+		<textarea class="topcoat-textarea" rows="20" style="width: 100%" id="jwsjson"></textarea>
 	</div>
 
 </div>
