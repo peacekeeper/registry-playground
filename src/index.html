@@ -23,9 +23,11 @@
 
 <div class="row">
 
-	<h1>registry playground</h1>
+	<h2>registry playground ...............</h2>
 	
 </div>
+
+<hr>
 
 <!-- ROW 1 -->
 
@@ -39,14 +41,20 @@
 		<tr><td>Extended Public Key:</td><td><input type="text" id="xpub" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>Private Key:</td><td><input type="text" id="prv" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>Address:</td><td><input type="text" id="pub" size="50" class="topcoat-text-input--large"></td></tr>
-		<tr><td>XDI Number:</td><td><input type="text" id="xdinumber" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
 	</div>
 
 	<div class="col-md-6">
-		<h3>JWT (payload for JWS)</h3>
-		<p><input type="button" id="createJWTButton" value="Step 2" class="topcoat-button--large--cta"></p>
-		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwt"></textarea>
+		<h3>XDI payload</h3>
+		<p><input type="button" id="createJWTAButton" value="Step 2a" class="topcoat-button--large--cta"></p>
+		<table>
+		<tr><td>I am:</td><td><input type="text" id="xdinumber" size="50" class="topcoat-text-input--large"></td></tr>
+		</table>
+		<p><input type="button" id="createJWTBButton" value="Step 2b" class="topcoat-button--large--cta"></p>
+		<table>
+		<tr><td>You are:</td><td><input type="text" id="xdinameyou" size="50" class="topcoat-text-input--large">&nbsp;<input type="button" id="createJWTBExampleButton" value="Example" class="topcoat-button"></td></tr>
+		<tr><td>&nbsp;</td><td><input type="text" id="xdinumberyou" size="50" class="topcoat-text-input--large"></td></tr>
+		</table>
 	</div>
 
 </div>
@@ -56,11 +64,28 @@
 <div class="row">
 
 	<div class="col-md-12">
+		<h3>XDI statement</h3>
+		<p><input type="text" id="xdi" style="width: 100%" class="topcoat-text-input--large"></p>
+		<h3>JWT (payload for JWS)</h3>
+		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwt"></textarea>
+	</div>
+
+</div>
+
+<hr>
+
+<!-- ROW 3 -->
+
+<div class="row">
+
+	<div class="col-md-12">
 		<h3>JWS (signed JWT)</h3>
 		<p><input type="button" id="createJWSButton" value="Step 3" class="topcoat-button--large--cta"></p>
-		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jws"></textarea><br>
-		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwsheader"></textarea><br>
-		<textarea class="topcoat-textarea" rows="6" style="width: 100%" id="jwspayload"></textarea>
+		<table style="width: 100%">
+		<tr><td>Compact:</td><td><textarea class="topcoat-textarea" rows="2" style="width: 100%" id="jws"></textarea></td></tr>
+		<tr><td>Header:</td><td><textarea class="topcoat-textarea" rows="2" style="width: 100%" id="jwsheader"></textarea></td></tr>
+		<tr><td>Payload:</td><td><textarea class="topcoat-textarea" rows="2" style="width: 100%" id="jwspayload"></textarea></td></tr>
+		</table>
 	</div>
 
 </div>
