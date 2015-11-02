@@ -35,7 +35,7 @@
 
 	<div class="col-md-6">
 		<h3>Create BIP32 HD master key pair</h3>
-		<p>Create BIP39 phrase: <input type="button" id="createWordsButton" value="Step 1" class="topcoat-button--large--cta">
+		<p>Create BIP39 phrase: <input type="button" id="createPhraseButton" value="Step 1" class="topcoat-button--large--cta">
 		Create BIP32 keys: <input type="button" id="createKeyButton" value="Step 2" class="topcoat-button--large--cta"></p>
 		<table>
 		<tr><td>BIP39 Phrase:</td><td><input type="text" id="phrase" size="50" class="topcoat-text-input--large"></td></tr>
@@ -47,15 +47,17 @@
 		<table>
 		<tr>
 		<td><div id="qrcode" class="qrcode"></div></td>
-		<td>Derivation:<br>
+		<td><center>Derivation:<br>
 		<input type="text" id="der" size="20" class="topcoat-text-input--large"><br>
-		<input type="button" id="createDerivationButton" value="Step 3" class="topcoat-button--large--cta"></td>
+		<input type="button" id="createDerivationButton" value="Step 3" class="topcoat-button--large--cta"></center></td>
 		<td><div id="qrcode2" class="qrcode"></div></td>
 		</tr>
 		</table>
 		<table>
 		<tr><td>Extended Private Key:</td><td><input type="text" id="xprv2" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>Extended Public Key:</td><td><input type="text" id="xpub2" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>Private Key:</td><td><input type="text" id="prv2" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>Public Key:</td><td><input type="text" id="pub2" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
 	</div>
 
@@ -71,6 +73,9 @@
 		<tr><td>&nbsp;</td><td><input type="text" id="xdinumberyou" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
 		<p><input type="button" id="createJWTCButton" value="Step 4c" class="topcoat-button--large--cta"> No XDI statement</p>
+		<h3>XDI statement</h3>
+		<p><input type="text" id="xdi" style="width: 100%" class="topcoat-text-input--large"></p>
+		<p>(scroll down for JWT and JWS)</p>
 	</div>
 
 </div>
@@ -80,8 +85,6 @@
 <div class="row">
 
 	<div class="col-md-12">
-		<h3>XDI statement</h3>
-		<p><input type="text" id="xdi" style="width: 100%" class="topcoat-text-input--large"></p>
 		<h3>JWT (payload for JWS)</h3>
 		<textarea class="topcoat-textarea" rows="10" style="width: 100%" id="jwt"></textarea>
 	</div>
@@ -101,6 +104,20 @@
 		<textarea class="topcoat-textarea" rows="7" style="width: 100%" id="jws"></textarea>
 		<h3>Expanded</h3>
 		<textarea class="topcoat-textarea" rows="20" style="width: 100%" id="jwsjson"></textarea>
+	</div>
+
+</div>
+
+<hr>
+
+<!-- ROW 4 -->
+
+<div class="row">
+
+	<div class="col-md-12">
+		<h3>Signature Validation</h3>
+		<p><input type="button" id="createValidationButton" value="Step 6" class="topcoat-button--large--cta">
+		<input type="text" id="val" size="20" class="topcoat-text-input--large"></p>
 	</div>
 
 </div>
