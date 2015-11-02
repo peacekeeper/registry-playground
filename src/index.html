@@ -23,7 +23,7 @@
 
 <div class="row">
 
-   <h2 class="topcoat-navigation-bar__title">&#8226; registry playground for BIP32, JWT, XDI, blockstore, etc ...............</h2>
+   <h2 class="topcoat-navigation-bar__title">Registry playground for BIP32, BIP39, JWT, XDI, blockstore, etc ...............</h2>
 	
 </div>
 
@@ -43,23 +43,34 @@
 		<tr><td>Extended Public Key:</td><td><input type="text" id="xpub" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>Private Key:</td><td><input type="text" id="prv" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>Public Key:</td><td><input type="text" id="pub" size="50" class="topcoat-text-input--large"></td></tr>
-		<tr><td>Derivation Path:</td><td><input type="text" id="der" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
-		<div id="qrcode"></div>
+		<table>
+		<tr>
+		<td><div id="qrcode" class="qrcode"></div></td>
+		<td>Derivation:<br>
+		<input type="text" id="der" size="20" class="topcoat-text-input--large"><br>
+		<input type="button" id="createDerivationButton" value="Step 3" class="topcoat-button--large--cta"></td>
+		<td><div id="qrcode2" class="qrcode"></div></td>
+		</tr>
+		</table>
+		<table>
+		<tr><td>Extended Private Key:</td><td><input type="text" id="xprv2" size="50" class="topcoat-text-input--large"></td></tr>
+		<tr><td>Extended Public Key:</td><td><input type="text" id="xpub2" size="50" class="topcoat-text-input--large"></td></tr>
+		</table>
 	</div>
 
 	<div class="col-md-6">
 		<h3>Create XDI statement and JWT</h3>
-		<p><input type="button" id="createJWTAButton" value="Step 3a" class="topcoat-button--large--cta"> "I am" XDI statement</p>
+		<p><input type="button" id="createJWTAButton" value="Step 4a" class="topcoat-button--large--cta"> "I am" XDI statement</p>
 		<table>
 		<tr><td>I am:</td><td><input type="text" id="xdinumber" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
-		<p><input type="button" id="createJWTBButton" value="Step 3b" class="topcoat-button--large--cta"> "You are" XDI statement <input type="button" id="createJWTBExampleButton" value="Load Example" class="topcoat-button"></p>
+		<p><input type="button" id="createJWTBButton" value="Step 4b" class="topcoat-button--large--cta"> "You are" XDI statement <input type="button" id="createJWTBExampleButton" value="Load Example" class="topcoat-button"></p>
 		<table>
 		<tr><td>You are:</td><td><input type="text" id="xdinameyou" size="50" class="topcoat-text-input--large"></td></tr>
 		<tr><td>&nbsp;</td><td><input type="text" id="xdinumberyou" size="50" class="topcoat-text-input--large"></td></tr>
 		</table>
-		<p><input type="button" id="createJWTCButton" value="Step 3c" class="topcoat-button--large--cta"> No XDI statement</p>
+		<p><input type="button" id="createJWTCButton" value="Step 4c" class="topcoat-button--large--cta"> No XDI statement</p>
 	</div>
 
 </div>
@@ -85,7 +96,7 @@
 
 	<div class="col-md-12">
 		<h3>JWS (signed JWT)</h3>
-		<p><input type="button" id="createJWSButton" value="Step 4" class="topcoat-button--large--cta"></p>
+		<p><input type="button" id="createJWSButton" value="Step 5" class="topcoat-button--large--cta"></p>
 		<h3>Compact</h3>
 		<textarea class="topcoat-textarea" rows="7" style="width: 100%" id="jws"></textarea>
 		<h3>Expanded</h3>

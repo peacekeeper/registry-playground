@@ -47,19 +47,19 @@ hr {
 	background-color: rgba(214,201,241,0.9);
 }
 
-#qrcode {
+.qrcode {
 	border: 1px solid black;
 	padding: 3px;
 	width: 128px;
 	height: 128px;
 }
 
-#qrcode canvas {
+.qrcode canvas {
 	width: 128px;
 	height: 128px;
 }
 
-#qrcode img {
+.qrcode img {
 	width: 128px;
 	height: 128px;
 }

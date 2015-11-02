@@ -22,18 +22,29 @@ function createKey() {
 	var privkey = bitcoin.HDNode.fromSeedHex(seed, network);
 
 	coinjs.compressed = true;
-//	alert(privkey.toBase58());
-	var master = coinjs.hd(privkey.toBase58());
-	$("#xpub").val(master.keys_extended.pubkey);
+	var master = coinjs.hd("xprv9s21ZrQH143K2yHeNJ2mhxVrXwb65Kd1SajYoZQG8yEGJSopWX8x1x2YFFsNnJyqBzo1wanfv1wPrxzrQRomHbTkm13sWPV4T1Ywfin3k4K");
+	master = coinjs.hd(privkey.toBase58());
 	$("#xprv").val(master.keys_extended.privkey);
-	$("#pub").val(master.keys.address);
+	$("#xpub").val(master.keys_extended.pubkey);
 	$("#prv").val(master.keys.wif);
-	$("#der").val("m");
-	$("#xdinumber").val("=!:cid-2:" + $("#xpub").val());
+	$("#pub").val(master.keys.address);
+	$("#der").val("m/9'/120'/1'/1'");
 
 	$("#qrcode").empty();
-	var qrcode = new QRCode("qrcode");
-	qrcode.makeCode("bitcoin:"+master.keys.address);
+	new QRCode("qrcode").makeCode("bitcoin:" + master.keys.address);
+}
+
+function createDerivation() {
+
+	var master = coinjs.hd($("#xprv").val());
+
+	var child = master.derive(9).derive(120).derive(1).derive(1);
+	$("#xpub2").val(child.keys_extended.pubkey);
+	$("#xprv2").val(child.keys_extended.privkey);
+	$("#xdinumber").val("=!:cid-2:" + $("#xpub2").val());
+
+	$("#qrcode2").empty();
+	new QRCode("qrcode2").makeCode("bitcoin:" + child.keys.address);
 }
 
 function createJWTA() {
@@ -122,6 +133,7 @@ function createJWS() {
 $(document).ready(function() {
 	$("#createWordsButton").click(function() { createWords(); });
 	$("#createKeyButton").click(function() { createKey(); });
+	$("#createDerivationButton").click(function() { createDerivation(); });
 	$("#createJWTAButton").click(function() { createJWTA(); });
 	$("#createJWTBButton").click(function() { createJWTB(); });
 	$("#createJWTBExampleButton").click(function() { createJWTBExample(); });
