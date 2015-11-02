@@ -67,15 +67,14 @@ gulp.task('lib-fonts', function() {
 });
 
 gulp.task('browserify', function() {
-  var bundleStream = browserify(sources.app).bundle()
+  var bundleStream = browserify(sources.app).bundle();
 
   bundleStream
     .pipe(vinylSourceStream('index.js'))
-    /* .pipe(gulpstreamify(gulpuglify())) */
+    .pipe(gulpstreamify(gulpuglify()))
     .pipe(rename('app.js'))
-    .pipe(gulp.dest('./dist'))
-})
-
+    .pipe(gulp.dest('./dist'));
+});
 
 gulp.task('clean', function () {
   return gulp.src('./dist/*').pipe(vinylPaths(del));
